@@ -8,11 +8,3 @@ In class-incremental semantic segmentation (CISS), deep learning architectures s
 
 
 This repository is a modified version of [Douillard et al.'s repository](https://github.com/arthurdouillard/CVPR2021_PLOP)
-```
-@inproceedings{douillard2021plop,
-  title={PLOP: Learning without Forgetting for Continual Semantic Segmentation},
-  authors={Douillard, Arthur and Chen, Yifu and Dapogny, Arnaud and Cord, Matthieu},
-  booktitle={Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
-  year={2021}
-}
-```
