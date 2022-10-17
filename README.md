@@ -9,11 +9,11 @@ In class-incremental semantic segmentation (CISS), deep learning architectures s
 
 Code will be published soon!
 
-'''
+```
 @article{goswami2022attribution,
   title={Attribution-aware Weight Transfer: A Warm-Start Initialization for Class-Incremental Semantic Segmentation},
   author={Goswami, Dipam and Schuster, Ren{\'e} and van de Weijer, Joost and Stricker, Didier},
   journal={arXiv preprint arXiv:2210.07207},
   year={2022}
 }
-'''
+```
