@@ -15,6 +15,8 @@ In class-incremental semantic segmentation (CISS), deep learning architectures s
 }
 ```
 
+# Requirements
+
 Follow the installation requirements from [Douillard et al.'s repository](https://github.com/arthurdouillard/CVPR2021_PLOP).
 
 ## Download the pretrained weights for the ResNet backbone
