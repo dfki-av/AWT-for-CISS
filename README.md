@@ -18,6 +18,10 @@ In class-incremental semantic segmentation (CISS), deep learning architectures s
 # Requirements
 
 Follow the installation requirements from [Douillard et al.'s repository](https://github.com/arthurdouillard/CVPR2021_PLOP).
+Additionally, install [captum](https://captum.ai/).
+```
+pip install captum
+```
 
 ## Download the pretrained weights for the ResNet backbone
 ```
@@ -46,13 +50,16 @@ The default parameters will replicate our experiments.
 - initialization: --orig_init, to use the original initialization proposed by MiB
 - threshold: --att 25, threshold for selecting most significant channels (we use 25 in our experiments)
 
+'attribute.py' is used to obtain the attribution maps corresponding to every new class and then get the significant classifier channels for weight transfer. Alternatively, 'attribute_class.py' can be used to obtain the attributions and significant classifier channels corresponding to the set of all new classes.
 
 ## Training
 You can use one of the provided scripts in the `scripts` folder that will launch every step of a continual training. 
 
-For example, edit the last line of run.sh to run the corresponding script. Then, execute run.sh
+For example, do
 ```
-bash run.sh
+bash scripts/cityscapes/mib_cityscapes_14-1.sh
 ```
+to train the entire 14-1 setting (6 tasks) on Cityscapes with MiB. 
+To train models for MiB+AWT, set the --att parameter to 25.
 
 This repository is a modified version of [Douillard et al.'s repository](https://github.com/arthurdouillard/CVPR2021_PLOP).
