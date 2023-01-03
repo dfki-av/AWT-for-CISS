@@ -7,17 +7,19 @@ Official repository for our paper on "Attribution-aware Weight Transfer: A Warm-
 In class-incremental semantic segmentation (CISS), deep learning architectures suffer from the critical problems of catastrophic forgetting and semantic background shift. Although recent works focused on these issues, existing classifier initialization methods do not address the background shift problem and assign the same initialization weights to both background and new foreground class classifiers. We propose to address the background shift with a novel classifier initialization method which employs gradient-based attribution to identify the most relevant weights for new classes from the classifier's weights for the previous background and transfers these weights to the new classifier. This warm-start weight initialization provides a general solution applicable to several CISS methods. Furthermore, it accelerates learning of new classes while mitigating forgetting. Our experiments demonstrate significant improvement in mIoU compared to the state-of-the-art CISS methods on the Pascal-VOC 2012, ADE20K and Cityscapes datasets.
 
 ```
-@article{goswami2022attribution,
+@inproceedings{goswami2023attribution,
   title={Attribution-aware Weight Transfer: A Warm-Start Initialization for Class-Incremental Semantic Segmentation},
   author={Goswami, Dipam and Schuster, Ren{\'e} and van de Weijer, Joost and Stricker, Didier},
-  journal={arXiv preprint arXiv:2210.07207},
-  year={2022}
+  booktitle={Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision},
+  pages={3195--3204},
+  year={2023}
 }
 ```
 
 # Requirements
 
 Follow the installation requirements from [Douillard et al.'s repository](https://github.com/arthurdouillard/CVPR2021_PLOP).
+
 Additionally, install [captum](https://captum.ai/).
 ```
 pip install captum
@@ -50,7 +52,7 @@ The default parameters will replicate our experiments.
 - initialization: --orig_init, to use the original initialization proposed by MiB
 - threshold: --att 25, threshold for selecting most significant channels (we use 25 in our experiments)
 
-'attribute.py' is used to obtain the attribution maps corresponding to every new class and then get the significant classifier channels for weight transfer. Alternatively, 'attribute_class.py' can be used to obtain the attributions and significant classifier channels corresponding to the set of all new classes.
+`attribute.py` is used to obtain the attribution maps corresponding to every new class and then get the significant classifier channels for weight transfer. Alternatively, `attribute_class.py` can be used to obtain the attributions and significant classifier channels corresponding to the set of all new classes.
 
 ## Training
 You can use one of the provided scripts in the `scripts` folder that will launch every step of a continual training. 
@@ -59,7 +61,8 @@ For example, do
 ```
 bash scripts/cityscapes/mib_cityscapes_14-1.sh
 ```
-to train the entire 14-1 setting (6 tasks) on Cityscapes with MiB. 
+to train the entire 14-1 setting (6 tasks) on Cityscapes with MiB.
+
 To train models for MiB+AWT, set the --att parameter to 25.
 
 This repository is a modified version of [Douillard et al.'s repository](https://github.com/arthurdouillard/CVPR2021_PLOP).
